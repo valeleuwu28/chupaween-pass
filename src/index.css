@@ -1,0 +1,537 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@400;600;700&display=swap");
+
+/* Reset básico para que nada falle */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a0b1e 0%, #050505 100%);
+  color: #e8e3e8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fondo con niebla */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(220, 10, 10, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(74, 26, 92, 0.15) 0%,
+      transparent 40%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- ESTILOS DEL LOGIN --- */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.gothic-card {
+  background: rgba(15, 10, 18, 0.85);
+  border: 1px solid rgba(220, 10, 10, 0.3);
+  border-radius: 20px;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea roja superior de la tarjeta */
+.gothic-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #dc0a0a, transparent);
+}
+
+.title-main {
+  font-family: "Creepster", cursive;
+  font-size: 3.5rem;
+  color: #dc0a0a;
+  text-align: center;
+  text-shadow:
+    0 0 10px rgba(220, 10, 10, 0.8),
+    0 0 20px rgba(220, 10, 10, 0.4);
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.subtitle {
+  text-align: center;
+  color: #a37caf;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-header h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.form-header p {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ff1f1f;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.gothic-input {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(5, 5, 5, 0.6);
+  border: 1px solid rgba(220, 10, 10, 0.3);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.gothic-input::placeholder {
+  color: #555;
+}
+
+.gothic-input:focus {
+  outline: none;
+  border-color: #dc0a0a;
+  background: rgba(10, 5, 10, 0.8);
+  box-shadow: 0 0 15px rgba(220, 10, 10, 0.3);
+}
+
+.btn-blood {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #dc0a0a, #7a0505);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(220, 10, 10, 0.4);
+}
+
+.btn-blood:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(220, 10, 10, 0.8);
+}
+
+.btn-blood:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: rgba(220, 10, 10, 0.1);
+  border: 1px solid rgba(220, 10, 10, 0.4);
+  color: #ff8888;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.admin-link {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(220, 10, 10, 0.2);
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.admin-link a {
+  color: #ff1f1f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.admin-link a:hover {
+  text-decoration: underline;
+}
+
+/* Emojis flotantes */
+.emoji-float {
+  position: absolute;
+  opacity: 0.3;
+  font-size: 2rem;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+/* --- ESTILOS DEL PANEL DE ADMINISTRADOR --- */
+.app-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.admin-header h1 {
+  font-family: "Creepster", cursive;
+  font-size: 2.5rem;
+  color: #dc0a0a;
+  text-shadow: 0 0 10px rgba(220, 10, 10, 0.8);
+  margin: 0;
+}
+
+.btn-logout {
+  background: transparent;
+  border: none;
+  color: #ff1f1f;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Tarjetas de estadísticas (Total, Adentro, Dulces) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: rgba(15, 10, 18, 0.85);
+  border: 1px solid rgba(220, 10, 10, 0.2);
+  border-radius: 15px;
+  padding: 15px 5px;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: "Creepster", cursive;
+  font-size: 2rem;
+  color: #dc0a0a;
+  text-shadow: 0 0 10px rgba(220, 10, 10, 0.6);
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+}
+
+/* Botón de escanear QR */
+.btn-scan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #1a0b1e, #0d0510);
+  border: 1px solid rgba(220, 10, 10, 0.4);
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(220, 10, 10, 0.2);
+}
+
+.btn-scan:hover {
+  background: linear-gradient(135deg, #2a1530, #1a0b1e);
+  box-shadow: 0 0 25px rgba(220, 10, 10, 0.5);
+  border-color: #dc0a0a;
+}
+
+/* Tarjeta de cada invitado en la lista */
+.guest-card {
+  background: rgba(20, 15, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 12px;
+  transition: border-color 0.3s;
+}
+
+.guest-card:hover {
+  border-color: rgba(220, 10, 10, 0.3);
+}
+
+.guest-info h3 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+
+.guest-info p {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+}
+
+.guest-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Botones de estado (Ingreso / Dulces) */
+.btn-toggle {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-checked {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+}
+
+.btn-unchecked {
+  background: rgba(234, 179, 8, 0.1);
+  color: #facc15;
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+.btn-candy-given {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+}
+
+.btn-candy-pending {
+  background: rgba(255, 255, 255, 0.05);
+  color: #aaa;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Escáner de QR */
+#reader {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid rgba(220, 10, 10, 0.5) !important;
+  box-shadow: 0 0 20px rgba(220, 10, 10, 0.3);
+  margin-bottom: 20px;
+}
+
+#reader video {
+  width: 100% !important;
+  border-radius: 13px;
+}
+/* --- ESTILOS DEL PASE VIP (QR) --- */
+.qr-ticket {
+  position: relative;
+  background: linear-gradient(180deg, #1a0b1e 0%, #0d0510 100%);
+  border: 2px solid rgba(220, 10, 10, 0.4);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(220, 10, 10, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Efecto de boleto perforado (círculos a los lados) */
+.qr-ticket::before,
+.qr-ticket::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #050505; /* Mismo color del fondo de la app */
+  border-radius: 50%;
+  border: 2px solid rgba(220, 10, 10, 0.4);
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.qr-ticket::before {
+  left: -17px;
+}
+
+.qr-ticket::after {
+  right: -17px;
+}
+
+/* Línea punteada del boleto */
+.qr-ticket-divider {
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    rgba(220, 10, 10, 0.5) 50%,
+    transparent 50%
+  );
+  background-size: 12px 100%;
+  margin: 15px 0;
+  position: relative;
+}
+
+.qr-frame {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.qr-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(220, 10, 10, 0.6);
+}
+
+/* Esquinas de escáner */
+.qr-corners {
+  position: absolute;
+  inset: -5px;
+  border: 2px solid transparent;
+  pointer-events: none;
+}
+
+.qr-corners::before,
+.qr-corners::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #dc0a0a;
+  border-radius: 4px;
+}
+
+.qr-corners::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.qr-corners::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.qr-info {
+  text-align: center;
+  width: 100%;
+}
+
+.qr-info-title {
+  font-family: "Creepster", cursive;
+  color: #dc0a0a;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(220, 10, 10, 0.5);
+}
+
+.qr-info-subtitle {
+  font-size: 0.75rem;
+  color: #a37caf;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.qr-ticket-id {
+  font-family: monospace;
+  color: #666;
+  font-size: 0.7rem;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
