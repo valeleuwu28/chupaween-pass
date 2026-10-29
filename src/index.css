@@ -535,3 +535,127 @@ body::before {
   margin-top: 5px;
   letter-spacing: 1px;
 }
+/* --- SISTEMA DE PESTAÑAS Y REGLAS DINÁMICAS --- */
+.alert-box {
+  background: rgba(220, 10, 10, 0.15);
+  border: 2px solid #dc0a0a;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(220, 10, 10, 0.4);
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0%,
+  100% {
+    border-color: rgba(220, 10, 10, 0.5);
+    box-shadow: 0 0 15px rgba(220, 10, 10, 0.3);
+  }
+  50% {
+    border-color: #ff1f1f;
+    box-shadow: 0 0 30px rgba(220, 10, 10, 0.8);
+  }
+}
+
+.alert-title {
+  color: #ff1f1f;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.alert-text {
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Pestañas */
+.tabs-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 5px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #888;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.tab-btn.active {
+  background: rgba(220, 10, 10, 0.2);
+  color: #ff1f1f;
+  box-shadow: inset 0 0 10px rgba(220, 10, 10, 0.3);
+  border: 1px solid rgba(220, 10, 10, 0.4);
+}
+
+/* Contenido de Reglas */
+.rule-item {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-left: 3px solid #dc0a0a;
+}
+
+.rule-icon {
+  font-size: 1.5rem;
+}
+
+.rule-text {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+.rule-text strong {
+  color: #fff;
+}
+
+/* Tarjetas de Dinámicas */
+.dynamic-card {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 26, 92, 0.4),
+    rgba(15, 10, 18, 0.8)
+  );
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+}
+
+.dynamic-title {
+  color: #c084fc;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dynamic-text {
+  font-size: 0.85rem;
+  color: #bbb;
+  line-height: 1.5;
+}
