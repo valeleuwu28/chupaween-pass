@@ -172,7 +172,7 @@ export default function GuestPass({ guest }) {
             className={`tab-btn ${activeTab === "evento" ? "active" : ""}`}
             onClick={() => setActiveTab("evento")}
           >
-            📍 Evento
+            📍 Ubicacion
           </button>
         </div>
 
